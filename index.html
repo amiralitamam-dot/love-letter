@@ -1,4 +1,22 @@
 <style>
+ <audio id="bg-music">
+  <source src="elysia.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  document.addEventListener('click', function() {
+    var audio = document.getElementById('bg-music');
+    
+    // Şarkının bittiğinde otomatik olarak başa sarıp tekrar oynamasını sağlar
+    audio.loop = true; 
+    
+    if (audio.paused) {
+      audio.play().catch(function(error) {
+        console.log("Müzik çalma hatası:", error);
+      });
+    }
+  }, { once: true });
+</script>
  </script>
 <audio id="bg-music" loop>
   <source src="song.mp3" type="audio/mpeg">
